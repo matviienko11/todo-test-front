@@ -1,0 +1,11 @@
+<form class="border flex p-6 justify-between" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="flex gap-3">
+        <input class="border p-2" placeholder="Type the name of your todo" type="text" formControlName="text"/>
+        <div class="flex gap-2 items-center">
+            <label for="due">Select due date: </label>
+            <input type="date" class="border p-2" id="due" formControlName="due_to"/>
+        </div>
+    </div>
+
+    <button type="submit" [ngClass]="['p-2', 'border', 'bg-green-600', form.valid ? 'opacity-100' : 'opacity-30']" [disabled]="!form.valid">Submit</button>
+</form>

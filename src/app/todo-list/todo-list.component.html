@@ -1,0 +1,19 @@
+@if (todoList) {
+    <div class="flex flex-col gap-3" >
+        @for (todo of todoList; track $index) {
+            <div class="border flex gap-3 justify-between p-3">
+                <span>{{ todo.text }}</span>
+                <div class="flex gap-3">
+                    <div class="flex gap-3 items-center">
+                        <span>Due date: </span>
+                        <span>{{todo.due_to | date : 'medium'}}</span>
+                    </div>
+                    <input type="checkbox" [checked]="todo.isDone" (change)="handleStatus(todo, $event)" />
+                    <button type="button" (click)="removeTodo(todo.id)" class="p-2 border bg-red-600">Remove</button>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+
